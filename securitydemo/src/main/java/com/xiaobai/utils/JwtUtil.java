@@ -1,4 +1,4 @@
-package com.utils;
+package com.xiaobai.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;

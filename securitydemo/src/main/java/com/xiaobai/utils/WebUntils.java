@@ -1,4 +1,4 @@
-package com.utils;
+package com.xiaobai.utils;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

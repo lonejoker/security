@@ -1,4 +1,4 @@
-package com.utils;
+package com.xiaobai.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.ParserConfig;

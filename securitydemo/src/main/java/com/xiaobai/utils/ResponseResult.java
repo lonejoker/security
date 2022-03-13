@@ -1,4 +1,4 @@
-package com.utils;
+package com.xiaobai.utils;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

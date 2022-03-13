@@ -1,6 +1,6 @@
-package com.config;
+package com.xiaobai.config;
 
-import com.utils.FastJsonRedisSerializer;
+import com.xiaobai.utils.FastJsonRedisSerializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;

@@ -27,8 +27,8 @@ public class CorsConfig implements WebMvcConfigurer {
                 // 设置允许的请求方式
                 .allowedMethods("GET","POST","PUT","DELETE","OPTIONS")
                 // 设置允许的header属性
-                .allowedHeaders("*");
+                .allowedHeaders("*")
                 // 跨域允许时间
-                //.maxAge(3600);
+                .maxAge(3600);
     }
 }

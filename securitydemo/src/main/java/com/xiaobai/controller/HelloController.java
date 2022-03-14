@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @program security
  * @Version 1.0
  * @ClassName HelloController
- * @Description 类方法说明：$
+ * @Description 类方法说明：
  */
 @RestController
 public class HelloController {

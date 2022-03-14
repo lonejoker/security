@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
@@ -27,6 +29,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
+
+    @Autowired
+    private AuthenticationEntryPoint authenticationEntryPoint;
+    @Autowired
+    private AccessDeniedHandler accessDeniedHandler;
 
     // 创建BCryptPasswordEncoder注入容器
     @Bean
@@ -56,5 +63,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated();
         // 配置认证过滤器
         http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+        // 配置异常处理器
+        http.exceptionHandling()
+                // 认证失败处理器
+                .authenticationEntryPoint(authenticationEntryPoint)
+                // 授权失败处理器
+                .accessDeniedHandler(accessDeniedHandler);
+        // 允许跨域
+        http.cors();
     }
 }

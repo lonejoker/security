@@ -5,4 +5,6 @@ import com.xiaobai.utils.ResponseResult;
 
 public interface LoginService {
     ResponseResult login(User user);
+
+    ResponseResult logout();
 }

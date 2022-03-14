@@ -26,4 +26,9 @@ public class LoginController {
         return loginService.login(user);
     }
 
+    @GetMapping("/logout")
+    public ResponseResult logout() {
+        return loginService.logout();
+    }
+
 }

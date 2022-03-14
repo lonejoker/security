@@ -4,6 +4,8 @@ import com.xiaobai.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 
@@ -19,6 +21,22 @@ import java.util.List;
 public class MpTest {
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Test
+    public void testPassword(){
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        // 加密
+        String encode = passwordEncoder.encode("12");
+        String encode1 = passwordEncoder.encode("12");
+        System.out.println(encode);
+        System.out.println(encode1);
+        // 校验
+        boolean matches = passwordEncoder.matches("12", "$2a$10$tz2sVtWQb9rYBPcg4id1.e1O8mhQFQEBHexNtJxaOkHE45Ze/BuEG");
+        System.out.println(matches);
+    }
 
     @Test
     public void testUser() {

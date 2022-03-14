@@ -25,6 +25,15 @@ public class MpTest {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private  MenuMapper menuMapper;
+
+    @Test
+    public void testMenu() {
+        List<String> list = menuMapper.selectByUserId(1);
+        System.out.println(list);
+    }
+
     @Test
     public void testPassword(){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

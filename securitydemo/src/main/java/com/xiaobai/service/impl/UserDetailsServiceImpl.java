@@ -3,6 +3,7 @@ package com.xiaobai.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.xiaobai.entity.LoginUser;
 import com.xiaobai.entity.User;
+import com.xiaobai.mapper.MenuMapper;
 import com.xiaobai.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,6 +30,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private MenuMapper menuMapper;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // 查询用户信息
@@ -43,7 +47,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         // Todo 查询对应的权限信息
         // 因为UserDetails是一个接口，封装的话要创建他的实现类
         // 将数据封装成UserDetails返回
-        List<String> list = new ArrayList<>(Arrays.asList("test", "admin"));
+        //List<String> list = new ArrayList<>(Arrays.asList("test", "admin"));
+        List<String> list = menuMapper.selectByUserId(user.getId());
         return new LoginUser(user,list);
     }
 }

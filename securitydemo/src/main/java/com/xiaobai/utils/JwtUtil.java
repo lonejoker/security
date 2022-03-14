@@ -96,7 +96,7 @@ public class JwtUtil {
     public static void main(String[] args) {
         String token = "";
         Claims claims = parseJWT(token);
-        System.out.println(claims);
+        System.out.println(claims.getSubject());
     }
 
 
